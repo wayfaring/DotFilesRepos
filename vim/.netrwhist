@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source/include/Drv'
+let g:netrw_dirhist_2='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source/include'
+let g:netrw_dirhist_3='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source/include/Flow'
+let g:netrw_dirhist_4='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source/include'
+let g:netrw_dirhist_5='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source'
+let g:netrw_dirhist_6='/cygdrive/e/FT-PRJS/+Asus/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_new/Source/include/App'
+let g:netrw_dirhist_7='/cygdrive/e/FT-PRJS/+Asus/CodeBase/NewBL_Firmware_Lib_FT5X36_V05_03_S03_20130621_Nick_zip'
+let g:netrw_dirhist_8='/home/Elmer/myGit/.git'
+let g:netrw_dirhist_9='/home/Elmer/sandbox'

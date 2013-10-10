@@ -1,0 +1,19 @@
+[diff]
+	external = git_diff_wrapper
+[pager]
+	diff = 
+[color]
+	diff = auto
+	ui = true
+[user]
+	name = Elmer
+	email = elmer.hsieh@gmail.com
+[apply]
+	whitespace = nowarn
+[alias]
+	st = status
+	br = branch
+	ci = commit
+	co = checkout
+[core]
+	editor = vi
