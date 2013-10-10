@@ -7,7 +7,6 @@
 	ui = true
 [user]
 	name = Elmer
-	email = elmer.hsieh@gmail.com
 [apply]
 	whitespace = nowarn
 [alias]
