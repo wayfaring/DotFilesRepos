@@ -23,6 +23,7 @@ cd $dir
 echo "...done"
 
 #link bin folder of home directory
+mv ~/bin ~/dotfiles.bak/
 ln -s $dir/bin ~/bin
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
