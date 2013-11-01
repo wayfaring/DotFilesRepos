@@ -8,7 +8,7 @@
 [user]
 	name = Elmer
 [apply]
-	whitespace = nowarn
+	#whitespace = nowarn
 [alias]
 	st = status
 	br = branch

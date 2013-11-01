@@ -5,7 +5,7 @@
 "--------------------------------------"
 "-----     Encoding Setting       -----"
 "--------------------------------------"
-if has("multi_byte")"<<<
+if has("multi_byte")
     " Set fileencoding priority
     if getfsize(expand("%")) > 0
         set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,latin1
@@ -16,39 +16,32 @@ if has("multi_byte")"<<<
     " CJK environment detection and corresponding setting
     if v:lang =~ "^zh_CN"
         " Use cp936 to support GBK, euc-cn == gb2312
-        set encoding=utf-8
-        set termencoding=cp936
-        set fileencoding=cp936
-    elseif v:lang =~ "^zh_TW""<<<
-        " cp950, big5 or euc-tw
-        " Are they equal to each other?
-"        set encoding=big5
-"        set termencoding=big5
-"        set fileencoding=big5
-        set encoding=utf-8
+        set encoding=cp936
         set termencoding=utf-8
-        set fileencoding=utf-8
-    elseif v:lang =~ "^ko"">>>
-        "Copied from someone's dotfile, untested
-        set encoding=euc-kr
-        set termencoding=euc-kr
-        set fileencoding=euc-kr
-    elseif v:lang =~ "^ja_JP"
-        " Copied from someone's dotfile, unteste
-        set encoding=euc-jp
-        set termencoding=euc-jp
-        set fileencoding=euc-jp
-    endif
-
-    " Detect UTF-8 locale, and replace CJK setting if needed
-    if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-        set encoding=utf-8
-        set termencoding=utf-8
-        set fileencoding=utf-8
+"    elseif v:lang =~ "^zh_TW"
+""        " cp950, big5 or euc-tw
+""        " Are they equal to each other?
+"""        set encoding=big5
+"""        set termencoding=big5
+"""        set fileencoding=big5
+""        set encoding=utf-8
+""        set termencoding=utf-8
+""        set fileencoding=utf-8
+""    elseif v:lang =~ "^ko"
+""        "Copied from someone's dotfile, untested
+""        set encoding=euc-kr
+""        set termencoding=euc-kr
+""        set fileencoding=euc-kr
+""    elseif v:lang =~ "^ja_JP"
+""        " Copied from someone's dotfile, unteste
+""        set encoding=euc-jp
+""        set termencoding=euc-jp
+""        set fileencoding=euc-jp
     endif
 else
     echoerr "Sorry, this version of (g)vim was not compiled with multi_byte"
-endif">>>
+endif
+
 
 "--------------------------------------"
 "-----     Vim Settings           -----"
@@ -67,7 +60,6 @@ set history=50              " keep 50 lines of command line history
 
 syntax on
 
-"set encoding=utf-8
 set number
 
 "***** file attributes
@@ -284,6 +276,8 @@ endfunction
 "imap <S-m> <ESC>:cclose<CR>
 "nmap <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR><CR>
 "nmap <F2> <ESC> :w <CR> :set makeprg=make\ %<<CR> :make<CR> :copen<CR> 
+nmap <F3> <ESC> :cn <CR><CR>
+nmap <C-F3><F3> <ESC> :cp <CR><CR>
 nmap <F4> <ESC> :cclose <CR><CR>
 nmap <F5> <ESC><ESC>:call SaveSession()<CR>
 map <F6> <ESC><CR> :call LoadSession()<CR><CR>
@@ -358,9 +352,9 @@ function! UpdateTags()
 	call system("ctags -L cscope.files")
 endfunction
 
-if filereadable("./tags")
-	autocmd BufWritePost *.cpp,*.h,*.c :call UpdateTags()
-endif
+"if filereadable("./tags")
+"	autocmd BufWritePost *.cpp,*.h,*.c :call UpdateTags()
+"endif
 
 function! TagsCheck()
 if filereadable("./tags")
@@ -396,8 +390,8 @@ let g:AutoPreview_allowed_filetypes=["c", "cpp", "java"]
 
 set updatetime=1000
 
-nnoremap <F3> <ESC>:AutoPreviewToggle<CR>
-inoremap <F3> <ESC>:AutoPreviewToggle<CR> i
+"nnoremap <F3> <ESC>:AutoPreviewToggle<CR>
+"inoremap <F3> <ESC>:AutoPreviewToggle<CR> i
 "***********************
 
 
@@ -464,8 +458,6 @@ endfunction
 "hi TabLineSel   guifg=#90fff0 guibg=#2050d0     ctermfg=white ctermbg=LightMagenta
 "hi Function      term=bold ctermfg=Red
 
-"Set mapleader
-let mapleader = ","
 "Fast reloading of the .vimrc
 map <silent> <leader>src :source ~/.vimrc<cr>
 "Fast editing of .vimrc
@@ -485,9 +477,12 @@ if filereadable("./filenametags")
 	let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 
-nmap <silent> <leader>lk <Plug>LookupFile<cr>
-nmap <silent> <leader>ll :LUBufs<cr>
-nmap <silent> <leader>lw :LUWalk<cr>
+"nmap <silent> <leader>lk <Plug>LookupFile<cr>
+"nmap <silent> <leader>ll :LUBufs<cr>
+"nmap <silent> <leader>lw :LUWalk<cr>
+nmap <leader>lk <Plug>LookupFile<cr>
+nmap <leader>ll :LUBufs<cr>
+nmap <leader>lw :LUWalk<cr>
 
 " lookup file tag file
 "let g:LookupFile_TagExpr = '"filenametags"' 
@@ -521,7 +516,7 @@ highlight LineNr ctermfg=gray ctermbg=black
 
 " Modeline  Customerized
 " vim: set fdm=marker ts=4:
-" Last modified: Wed, Oct 02, 2013  7:19:21 PM
+" Last modified: 2013Äê10ÔÂ22ÈÕ 20:05:10
 
 
 colorscheme desert
@@ -544,5 +539,26 @@ endif
 noremap ;; :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
 
-let mapleader='\'
 cmap ;\ \(\)<Left><Left>
+
+function! QfMakeConv()
+	echo "lalalalala"
+	let qflist = getqflist()
+	for i in qflist
+		let i.text = iconv(i.text, "cp936", "utf-8")
+	endfor
+	call setqflist(qflist)
+endfunction
+
+au QuickfixCmdPost grep call QfMakeConv()
+"autocmd BufNewFile,BufRead *.afl source ~/.vim/ftplugin/afl.vim
+
+"function! TestEncoding()
+	if &fileencoding == "cp936"
+		set encoding=cp936
+		set termencoding=utf-8
+	endif
+"endfunction
+
+"autocmd BufRead * :call TestEncoding()
+

@@ -17,3 +17,4 @@ alias uv4='/cygdrive/c/Keil/UV4/Uv4.exe'
 
 alias prjcreate='~/bin/prjcreate.sh'
 alias ll='ls -al'
+alias cvi='LANG=zh_CN, LC_ALL=zh_CN vim'
