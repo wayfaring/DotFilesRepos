@@ -21,3 +21,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+#C:\Program Files\Java\jdk1.7.0_45\bin
+JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.7.0_45/"
+
+export PATH="$PATH:$JAVA_HOME/bin/"

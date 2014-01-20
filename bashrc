@@ -110,8 +110,22 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-PATH=$PATH:/cygdrive/c/Keil/C251/BIN/
+#C:\Program Files\Java\jdk1.7.0_45\bin
+JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.7.0_45/"
+
+PATH="/cygdrive/c/Program Files (x86)/vivo/vivo手机":$PATH:/cygdrive/c/Keil/C251/BIN/:$JAVA_HOME/bin/
 
 function git_diff() {
 git diff --no-ext-diff -w "$@" | vim -R -
 }
+
+# For colourful man pages (CLUG-Wiki style)
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+export EDITOR=vim

@@ -10,7 +10,7 @@ if has("multi_byte")
     if getfsize(expand("%")) > 0
         set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,latin1
     else
-        set fileencodings=cp936,big5,euc-jp,euc-kr,latin1
+        set fileencodings=cp936,big5,utf-8,euc-jp,euc-kr,latin1
     endif
 
     " CJK environment detection and corresponding setting
@@ -516,7 +516,7 @@ highlight LineNr ctermfg=gray ctermbg=black
 
 " Modeline  Customerized
 " vim: set fdm=marker ts=4:
-" Last modified: 2013Äê10ÔÂ22ÈÕ 20:05:10
+" Last modified: Tue, Jan 14, 2014 11:07:47 AM
 
 
 colorscheme desert
@@ -562,3 +562,7 @@ au QuickfixCmdPost grep call QfMakeConv()
 
 "autocmd BufRead * :call TestEncoding()
 
+highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white 
+highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black 
+highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black 
+highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black 
